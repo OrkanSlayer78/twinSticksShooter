@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
     public float moveSpeed;
     private Vector2 moveInput;
 
@@ -18,6 +19,12 @@ public class PlayerController : MonoBehaviour
     public Transform firePoint;
     public float timeBetweenShots;
     private float shotCounter;
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
