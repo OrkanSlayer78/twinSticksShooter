@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
     public float rangeToChasePlayer;
     private Vector3 moveDirection;
 
+    public Animator anim;
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,5 +37,14 @@ public class EnemyController : MonoBehaviour
 
         theRB.velocity = moveDirection * moveSpeed;
 
+
+        if(moveDirection != Vector3.zero)
+        {
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
     }
 }
