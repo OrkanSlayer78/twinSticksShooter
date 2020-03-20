@@ -15,7 +15,14 @@ public class EnemyController : MonoBehaviour
     public Animator anim;
 
     public int health = 150;
+    public GameObject[] deathSplatters;
+    public GameObject hitEffect;
 
+    public bool shouldShoot;
+    public GameObject bullet;
+    public Transform firePoint;
+    public float fireRate;
+    public float fireCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -48,15 +55,32 @@ public class EnemyController : MonoBehaviour
         {
             anim.SetBool("isMoving", false);
         }
+
+        if(shouldShoot)
+        {
+            fireCounter -= Time.deltaTime;
+            if (fireCounter <= 0)
+            {
+                fireCounter = fireRate;
+                Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation);
+
+            }
+        }
     }
 
     public void DamageEnemy(int damage)
     {
         health -= damage;
+        Instantiate(hitEffect, transform.position, transform.rotation);
 
         if(health <= 0)
         {
             Destroy(gameObject);
+
+            int selectedSplatter = Random.Range(0, deathSplatters.Length);
+            int rotation = Random.Range(0, 4);
+
+            Instantiate(deathSplatters[selectedSplatter], transform.position, Quaternion.Euler(0f ,0f , rotation*90f));
         }
     }
 }

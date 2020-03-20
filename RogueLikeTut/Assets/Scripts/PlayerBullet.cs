@@ -36,5 +36,6 @@ public class PlayerBullet : MonoBehaviour
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+
     }
 }
