@@ -111,6 +111,8 @@ MonoBehaviour:
   firePoint: {fileID: 3118418461621148498}
   fireRate: 2
   fireCounter: 0
+  enemyBody: {fileID: 7671122062184365603}
+  shootRange: 5
 --- !u!1 &7671122062184365601
 GameObject:
   m_ObjectHideFlags: 0

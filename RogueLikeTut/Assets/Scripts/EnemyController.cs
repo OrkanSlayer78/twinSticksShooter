@@ -24,6 +24,10 @@ public class EnemyController : MonoBehaviour
     public float fireRate;
     public float fireCounter;
 
+    public SpriteRenderer enemyBody;
+
+    public float shootRange;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,38 +37,40 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < rangeToChasePlayer)
+        if (enemyBody.isVisible)
         {
-            moveDirection = PlayerController.instance.transform.position - transform.position;
+            if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < rangeToChasePlayer)
+            {
+                moveDirection = PlayerController.instance.transform.position - transform.position;
+            }
+            else
+            {
+                moveDirection = Vector3.zero;
+            }
+
+            moveDirection.Normalize();
+
+            theRB.velocity = moveDirection * moveSpeed;
+
+            if (shouldShoot && Vector3.Distance(transform.position, PlayerController.instance.transform.position)< shootRange)
+            {
+                fireCounter -= Time.deltaTime;
+                if (fireCounter <= 0)
+                {
+                    fireCounter = fireRate;
+                    Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation);
+
+                }
+            }
         }
-        else
-        {
-            moveDirection = Vector3.zero;
-        }
 
-        moveDirection.Normalize();
-
-        theRB.velocity = moveDirection * moveSpeed;
-
-
-        if(moveDirection != Vector3.zero)
+        if (moveDirection != Vector3.zero)
         {
             anim.SetBool("isMoving", true);
         }
         else
         {
             anim.SetBool("isMoving", false);
-        }
-
-        if(shouldShoot)
-        {
-            fireCounter -= Time.deltaTime;
-            if (fireCounter <= 0)
-            {
-                fireCounter = fireRate;
-                Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation);
-
-            }
         }
     }
 
