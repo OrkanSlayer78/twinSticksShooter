@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour
 
     private float activeMoveSpeed;
     public float dashSpeed = 8f, dashLength = .5f, dashCooldown = 1f, dashInvLength = .25f;
-    private float dashCounter, dashCoolCounter;
+    private float  dashCoolCounter;
+    [HideInInspector]
+    public float dashCounter;
 
     private void Awake()
     {
