@@ -31,6 +31,7 @@ public class Breakables : MonoBehaviour
             if (PlayerController.instance.dashCounter > 0)
             {
                 Destroy(gameObject);
+                AudioManager.instance.PlaySFX(0);
                 
                 //show debris
                 int piecesToDrop = Random.Range(1, maxPieces);

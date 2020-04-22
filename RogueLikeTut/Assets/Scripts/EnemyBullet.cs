@@ -28,9 +28,11 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        AudioManager.instance.PlaySFX(17);
         if(other.tag == "Player")
         {
             PlayerHealthController.instance.DamagePlayer();
+            AudioManager.instance.PlaySFX(11);
 
         }
         Destroy(gameObject);
