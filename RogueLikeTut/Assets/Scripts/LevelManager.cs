@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
     {
         AudioManager.instance.PlayVictory();
         PlayerController.instance.canMove = false;
+        UIController.instance.StartFadeToBlack();
         yield return new WaitForSeconds(waitToLoad);
         SceneManager.LoadScene(nextLevel);
     }

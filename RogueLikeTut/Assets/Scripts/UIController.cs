@@ -13,6 +13,10 @@ public class UIController : MonoBehaviour
 
     public GameObject deathScreen;
 
+    public Image fadeScreen;
+    public float fadeSpeed;
+    private bool fadeToBlack, fadeOut;
+
 
     private void Awake()
     {
@@ -21,13 +25,38 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        fadeOut = true;
+        fadeToBlack = false;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (fadeOut)
+        {
+            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 0f, fadeSpeed * Time.deltaTime));
+            if(fadeScreen.color.a == 0f)
+            {
+                fadeOut = false;
+            }
+        }
+
+        if (fadeToBlack)
+        {
+            fadeScreen.color = new Color(fadeScreen.color.r, fadeScreen.color.g, fadeScreen.color.b, Mathf.MoveTowards(fadeScreen.color.a, 1f, fadeSpeed * Time.deltaTime));
+            if (fadeScreen.color.a == 1f)
+            {
+                fadeToBlack = true;
+            }
+        }
     }
+
+    public void StartFadeToBlack()
+    {
+        fadeToBlack = true;
+        fadeOut = false;
+    }
+
 }
+
