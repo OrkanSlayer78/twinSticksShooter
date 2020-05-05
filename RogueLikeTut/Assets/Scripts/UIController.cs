@@ -13,12 +13,14 @@ public class UIController : MonoBehaviour
     public Text healthText;
 
     public GameObject deathScreen;
+    public GameObject pauseMenu;
 
     public Image fadeScreen;
     public float fadeSpeed;
     private bool fadeToBlack, fadeOut;
 
     public string newGameScene, mainMenuScene;
+
 
     private void Awake()
     {
@@ -63,11 +65,18 @@ public class UIController : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene(newGameScene);
+        Time.timeScale = 1f;
     }
 
     public void returnToMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(mainMenuScene);
+    }
+
+    public void Resume()
+    {
+        LevelManager.instance.PauseUnpause();
     }
 
 }
