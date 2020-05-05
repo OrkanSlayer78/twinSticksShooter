@@ -8,3 +8,5 @@ spacebar to jump
 mouse to look
 left mouse to shoot
 
+esc to pause
+
