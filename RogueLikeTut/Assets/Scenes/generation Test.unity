@@ -193,6 +193,13 @@ MonoBehaviour:
       type: 3}
     fourway: {fileID: 6529668596062900575, guid: 2b20d6706d13dec4f867322dbf9355b9,
       type: 3}
+  centerStart: {fileID: 6709293377602978570, guid: bae90020ecfe3dc47bb8b8512376862b,
+    type: 3}
+  centerEnd: {fileID: 6152295043905814405, guid: a362be89791c9604ba1d8e9ee815efce,
+    type: 3}
+  potentialCenters:
+  - {fileID: 3008051146189181399, guid: 21768f2fced322543aa8dbf5446f6b8c, type: 3}
+  - {fileID: 6709293377602978570, guid: bae90020ecfe3dc47bb8b8512376862b, type: 3}
 --- !u!4 &505715984
 Transform:
   m_ObjectHideFlags: 0

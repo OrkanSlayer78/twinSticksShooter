@@ -22,6 +22,9 @@ public class LevelGenerator : MonoBehaviour
     public RoomPrefabs rooms;
     private List<GameObject> roomOutlines = new List<GameObject>();
 
+    public RoomCenter centerStart, centerEnd;
+    public RoomCenter[] potentialCenters;
+
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +62,24 @@ public class LevelGenerator : MonoBehaviour
             createRoomOutline(room.transform.position);
         }
         createRoomOutline(endRoom.transform.position);
+
+
+        foreach (GameObject outline in roomOutlines)
+        {
+            if (outline.transform.position == Vector3.zero)
+            {
+                Instantiate(centerStart, outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();
+            }
+            else if (outline.transform.position == endRoom.transform.position)
+            {
+                Instantiate(centerEnd, outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();
+            }
+            else
+            {
+                int centerSelect = Random.Range(0, potentialCenters.Length);
+                Instantiate(potentialCenters[centerSelect], outline.transform.position, transform.rotation).theRoom = outline.GetComponent<Room>();
+            }
+        }
     }
 
     // Update is called once per frame

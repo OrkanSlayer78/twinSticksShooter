@@ -13,7 +13,10 @@ public class RoomCenter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (openWhenEnemiesCleared)
+        {
+            theRoom.closeWhenEntered = true;
+        }
     }
 
     // Update is called once per frame
