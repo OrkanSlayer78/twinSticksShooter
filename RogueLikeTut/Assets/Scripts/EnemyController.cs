@@ -9,30 +9,33 @@ public class EnemyController : MonoBehaviour
     public Rigidbody2D theRB;
     public float moveSpeed;
 
+    [Header("Chase Player")]
     public bool shouldChasePlayer;
-
     public float rangeToChasePlayer;
     private Vector3 moveDirection;
 
+    [Header("Run Away")]
     public bool shouldRunAway;
     public float runawayRange;
 
+    [Header ("Wandering")]
     public bool shouldWander;
     public float wanderLength, pauseLength;
     private float wanderCounter, pauseCounter;
     private Vector3 wanderDirection;
 
+    [Header("Patrolling")]
     public bool shouldPatrol;
     public Transform[] patrolPoints;
     private int currentPatrolPoint;
 
-
+    [Header("Animate")]
     public Animator anim;
-
     public int health = 150;
     public GameObject[] deathSplatters;
     public GameObject hitEffect;
 
+    [Header("Shooting")]
     public bool shouldShoot;
     public GameObject bullet;
     public Transform firePoint;
