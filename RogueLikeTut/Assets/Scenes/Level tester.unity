@@ -4777,6 +4777,16 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9122467204499812224, guid: 6bb05e5f76ccc5c438650e74303d35df,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.4117647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9122467204499812224, guid: 6bb05e5f76ccc5c438650e74303d35df,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.34117648
+      objectReference: {fileID: 0}
     - target: {fileID: 9122467204499812225, guid: 6bb05e5f76ccc5c438650e74303d35df,
         type: 3}
       propertyPath: m_IsActive
@@ -4800,7 +4810,7 @@ PrefabInstance:
     - target: {fileID: 9122467204746662928, guid: 6bb05e5f76ccc5c438650e74303d35df,
         type: 3}
       propertyPath: newGameScene
-      value: test2
+      value: Level Tester
       objectReference: {fileID: 0}
     - target: {fileID: 9122467204746662928, guid: 6bb05e5f76ccc5c438650e74303d35df,
         type: 3}

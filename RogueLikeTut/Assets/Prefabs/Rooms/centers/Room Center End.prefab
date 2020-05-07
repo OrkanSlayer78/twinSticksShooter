@@ -2103,6 +2103,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1901678727537508702}
     m_Modifications:
+    - target: {fileID: 2102476961192378963, guid: f27525e99c57e60488df395aa95a3e62,
+        type: 3}
+      propertyPath: levelToLoad
+      value: Level Tester
+      objectReference: {fileID: 0}
     - target: {fileID: 2102476961192378964, guid: f27525e99c57e60488df395aa95a3e62,
         type: 3}
       propertyPath: m_LocalPosition.x
