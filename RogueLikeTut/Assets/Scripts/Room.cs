@@ -21,10 +21,15 @@ public class Room : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+#if UNITY_EDITOR
+        if (Input.GetKey(KeyCode.O))
+        {
+            OpenDoors();
+        }
+#endif
     }
 
-    public void openDoors()
+    public void OpenDoors()
     {
         foreach (GameObject door in doors)
         {
@@ -52,6 +57,10 @@ public class Room : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        roomActive = false;
+        if(other.tag == "Player")
+        {
+            roomActive = false;
+        }
+       
     }
 }

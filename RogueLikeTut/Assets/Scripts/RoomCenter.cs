@@ -22,20 +22,23 @@ public class RoomCenter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("RC update");
         if (enemies.Count > 0 && theRoom.roomActive && openWhenEnemiesCleared)
         {
+           
             for (int i = 0; i < enemies.Count; i++)
             {
                 if (enemies[i] == null)
                 {
+                    Debug.Log("Enemy killed");
                     enemies.RemoveAt(i);
                     i--;
                 }
             }
-
             if (enemies.Count == 0)
             {
-                theRoom.openDoors();
+                Debug.Log("Clear");
+                theRoom.OpenDoors();
             }
         }
     }
